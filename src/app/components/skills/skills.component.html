@@ -1,1 +1,23 @@
-<p>skills works!</p>
+<section id="skills" class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center mb-5">
+                <h2 class="display-5 fw-bold">Technical Skills</h2>
+                <div class="underline mx-auto"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 col-lg-12 col-md-6 col-12 mb-4" *ngFor="let skill of skills">
+                <div class="card h-100 shadow-sm hover-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary mb-3">{{ skill.title }}</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-secondary skill-badge" *ngFor="let item of skill.items">{{ item
+                                }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

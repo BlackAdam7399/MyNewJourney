@@ -1,0 +1,36 @@
+.navbar {
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+
+    .navbar-brand {
+        font-size: 1.5rem;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .nav-link {
+        position: relative;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--primary-color) !important;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 100%;
+            left: 0;
+        }
+    } }

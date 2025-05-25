@@ -1,0 +1,138 @@
+#contactModal {
+    .modal-dialog {
+      max-width: 600px; // moderate width for readability
+      margin: 1.75rem auto;
+    }
+  
+    .modal-content {
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      background-color: #fff;
+      color: #333;
+  
+      .modal-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid #e9ecef;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        .modal-title {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+  
+        .btn-close {
+          padding: 0.5rem;
+          transition: opacity 0.2s ease;
+          cursor: pointer;
+  
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+  
+      .modal-body {
+        padding: 1.5rem;
+  
+        .row {
+          margin: 0; // reset bootstrap row margin if any
+  
+          .col-12 {
+            margin-bottom: 1.25rem;
+  
+            .d-flex {
+              align-items: center;
+              gap: 1rem; // space between icon and text
+  
+              i.bi {
+                font-size: 24px;
+                color: var(--bs-primary);
+                flex-shrink: 0; // prevent icon from shrinking
+                min-width: 24px;
+              }
+  
+              div {
+                strong {
+                  font-weight: 600;
+                  display: block; // forces line break after strong text
+                  margin-bottom: 0.2rem;
+                }
+  
+                a {
+                  color: var(--bs-primary);
+                  text-decoration: none;
+                  word-break: break-word; // allow wrapping of long text/emails/links
+  
+                  &:hover {
+                    color: darken(#0d6efd, 10%);
+                    text-decoration: underline;
+                  }
+                }
+  
+                // Phone numbers and text line breaks appear normally
+                br {
+                  display: block;
+                }
+              }
+            }
+          }
+  
+          // Remove margin for last item
+          .col-12:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+  
+      .modal-footer {
+        padding: 1rem;
+        border-top: 1px solid #e9ecef;
+        display: flex;
+        justify-content: flex-end;
+  
+        .btn-secondary {
+          background-color: #6c757d;
+          border-color: #6c757d;
+          transition: background-color 0.2s ease;
+  
+          &:hover {
+            background-color: darken(#6c757d, 10%);
+            border-color: darken(#6c757d, 10%);
+          }
+        }
+      }
+    }
+  }
+  
+  // Responsive fix for small screens
+  @media (max-width: 576px) {
+    #contactModal {
+      .modal-dialog {
+        margin: 1rem;
+        max-width: 100%;
+      }
+  
+      .modal-content {
+        .modal-header {
+          .modal-title {
+            font-size: 1.25rem;
+          }
+        }
+  
+        .modal-body {
+          .d-flex {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+  
+            i.bi {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  

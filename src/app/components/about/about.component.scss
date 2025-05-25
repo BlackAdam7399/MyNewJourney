@@ -1,0 +1,8 @@
+.about-section {
+    .underline {
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        margin: 1rem auto;
+        border-radius: 2px;
+    } }
