@@ -12,7 +12,7 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" #contactModal>
+    <div class="modal fade bounce" id="contactModal" tabindex="-1" #contactModal>
         <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -20,54 +20,61 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closeModal()"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-12 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-telephone text-primary me-3" style="font-size: 24px;"></i>
-                                <div>
-                                    <strong>Phone:</strong><br />
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <i class="bi bi-telephone contact-icon"></i>
+                            <div class="contact-details">
+                                <strong>Phone:</strong>
+                                <div class="contact-value">
                                     +91-8976578118<br />
                                     +91-9326697700
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-envelope text-primary me-3" style="font-size: 24px;"></i>
-                                <div>
-                                    <strong>Email:</strong><br />
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <i class="bi bi-envelope contact-icon"></i>
+                            <div class="contact-details">
+                                <strong>Email:</strong>
+                                <div class="contact-value">
                                     <a href="mailto:Bhorp603@gmail.com">Bhorp603&#64;gmail.com</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-3">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-linkedin text-primary me-3" style="font-size: 24px;"></i>
-                                <div>
-                                    <strong>LinkedIn:</strong><br />
-                                    <a href="https://www.linkedin.com/in/prathameshsbhor" target="_blank"
-                                        rel="noopener noreferrer">linkedin.com/in/prathameshsbhor</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-geo-alt text-primary me-3" style="font-size: 24px;"></i>
-                                <div>
-                                    <strong>Location:</strong><br />
-                                    Ulwe, Navi Mumbai, 410206
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <i class="bi bi-linkedin contact-icon"></i>
+                            <div class="contact-details">
+                                <strong>LinkedIn:</strong>
+                                <div class="contact-value">
+                                    <a href="https://www.linkedin.com/in/prathameshsbhor" target="_blank"
+                                        rel="noopener noreferrer">
+                                        linkedin.com/prathameshsbhor
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-content">
+                            <i class="bi bi-geo-alt contact-icon"></i>
+                            <div class="contact-details">
+                                <strong>Location:</strong>
+                                <div class="contact-value">Ulwe, Navi Mumbai, 410206</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="closeModal()">Close</button>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
     </div>
+
 
 
 </section>

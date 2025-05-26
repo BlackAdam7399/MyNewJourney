@@ -1,138 +1,209 @@
+// Variables
+$primary-color: #503d7d;
+$secondary-color: #f8f9fa;
+$text-muted: #6c757d;
+$text-dark: #212529;
+$white: #ffffff;
+$backdrop-color: rgba(0, 0, 0, 0.5);
+$animation-duration: 0.4s;
+$animation-easing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+}
+
+// Modal Styles
 #contactModal {
-    .modal-dialog {
-      max-width: 600px; // moderate width for readability
-      margin: 1.75rem auto;
+  .modal-dialog {
+    animation: slideInDown $animation-duration $animation-easing;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &.fade:not(.show) .modal-dialog {
+    animation: slideOutUp $animation-duration $animation-easing;
+  }
+
+  .modal-content {
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(80, 61, 125, 0.3);
+    border: none;
+    color: rgb(35, 6, 109);
+    background-color: $white;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, $primary-color 0%, lighten($primary-color, 20%) 100%);
     }
-  
-    .modal-content {
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      background-color: #fff;
-      color: #333;
-  
-      .modal-header {
-        padding: 1.5rem;
-        border-bottom: 1px solid #e9ecef;
+
+    .modal-header {
+      background: linear-gradient(135deg, lighten($primary-color, 45%), $white);
+      border-bottom: 1px solid lighten($secondary-color, 10%);
+      padding: 1.5rem 1.5rem 1rem;
+
+      .modal-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $primary-color;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-  
-        .modal-title {
-          font-size: 1.5rem;
-          font-weight: 600;
-        }
-  
-        .btn-close {
-          padding: 0.5rem;
-          transition: opacity 0.2s ease;
-          cursor: pointer;
-  
-          &:hover {
-            opacity: 0.7;
-          }
+
+        &::before {
+          content: "📞";
+          margin-right: 0.5rem;
         }
       }
-  
-      .modal-body {
-        padding: 1.5rem;
-  
-        .row {
-          margin: 0; // reset bootstrap row margin if any
-  
-          .col-12 {
-            margin-bottom: 1.25rem;
-  
-            .d-flex {
-              align-items: center;
-              gap: 1rem; // space between icon and text
-  
-              i.bi {
-                font-size: 24px;
-                color: var(--bs-primary);
-                flex-shrink: 0; // prevent icon from shrinking
-                min-width: 24px;
-              }
-  
-              div {
-                strong {
-                  font-weight: 600;
-                  display: block; // forces line break after strong text
-                  margin-bottom: 0.2rem;
-                }
-  
-                a {
-                  color: var(--bs-primary);
-                  text-decoration: none;
-                  word-break: break-word; // allow wrapping of long text/emails/links
-  
-                  &:hover {
-                    color: darken(#0d6efd, 10%);
-                    text-decoration: underline;
-                  }
-                }
-  
-                // Phone numbers and text line breaks appear normally
-                br {
-                  display: block;
-                }
-              }
-            }
-          }
-  
-          // Remove margin for last item
-          .col-12:last-child {
-            margin-bottom: 0;
-          }
+
+      .btn-close {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        opacity: 0.6;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+
+        &:hover {
+          opacity: 1;
+          background-color: rgba($primary-color, 0.1);
+          transform: rotate(90deg);
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba($primary-color, 0.25);
         }
       }
-  
-      .modal-footer {
-        padding: 1rem;
-        border-top: 1px solid #e9ecef;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+      max-height: 70vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .contact-item {
+        opacity: 0;
+        animation: fadeIn 0.6s ease forwards;
+
+        &:nth-child(1) {
+          animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.3s;
+        }
+
+        &:nth-child(4) {
+          animation-delay: 0.4s;
+        }
+      }
+
+      .contact-content {
         display: flex;
-        justify-content: flex-end;
-  
-        .btn-secondary {
-          background-color: #6c757d;
-          border-color: #6c757d;
-          transition: background-color 0.2s ease;
-  
-          &:hover {
-            background-color: darken(#6c757d, 10%);
-            border-color: darken(#6c757d, 10%);
-          }
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .contact-icon {
+        font-size: 1.5rem;
+        color: $primary-color;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2);
+          color: darken($primary-color, 10%);
+        }
+      }
+
+      .contact-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .contact-value {
+        color: $text-dark;
+      }
+
+      a {
+        color: $primary-color;
+        text-decoration: none;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 0;
+          height: 2px;
+          width: 0;
+          background: $primary-color;
+          transition: width 0.3s;
+        }
+
+        &:hover::after {
+          width: 100%;
         }
       }
     }
-  }
-  
-  // Responsive fix for small screens
-  @media (max-width: 576px) {
-    #contactModal {
-      .modal-dialog {
-        margin: 1rem;
-        max-width: 100%;
-      }
-  
-      .modal-content {
-        .modal-header {
-          .modal-title {
-            font-size: 1.25rem;
-          }
-        }
-  
-        .modal-body {
-          .d-flex {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.5rem;
-  
-            i.bi {
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
+
+    .modal-footer {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid lighten($secondary-color, 10%);
+      background-color: lighten($secondary-color, 3%);
     }
   }
-  
+}

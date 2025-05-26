@@ -1,3 +1,15 @@
+.angular-highlight {
+    color: #ffcc00; // Choose any color that fits your theme
+    font-weight: 600; 
+}
+
+$angular-highlight-color: #ffcc00;
+
+.angular-highlight {
+    color: $angular-highlight-color;
+    font-weight: 600;
+}
+
 .hero-section {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     position: relative;
