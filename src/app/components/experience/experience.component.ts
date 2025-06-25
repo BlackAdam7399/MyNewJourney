@@ -21,21 +21,21 @@ export class ExperienceComponent {
       title: 'Associate',
       company: 'Accenture, Navi Mumbai',
       duration: 'Feb 2021 – Nov 2024',
-      description: 'Worked as an Associate handling various technical and client-facing responsibilities.',
+      description: '',
       modalId: 'experienceModal1'
     },
     {
       title: 'Trainee Associate',
       company: 'WNS, Navi Mumbai',
       duration: 'Jun 2019 - Jun 2020',
-      description: 'Started career as a Trainee Associate, learning foundational business processes.',
+      description: '',
       modalId: 'experienceModal2'
     },
     {
       title: 'Neem Trainee',
       company: 'TCS, Mumbai',
       duration: 'Feb 2019 - Mar 2019',
-      description: 'Participated in TCS training program to develop technical skills.',
+      description: 'Participated in TCS training program to develop technical skills. Developed technical skills under NEEM program at TCS.',
       modalId: 'experienceModal3'
     },
     {
